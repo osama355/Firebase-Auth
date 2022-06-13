@@ -1,0 +1,13 @@
+.popup-box {
+    text-align: center;
+    font-family: sans-serif;
+    width: 400px;
+    margin: 200px auto;
+    background-color: white;
+    margin-top: calc(100vh - 76vh - 20px);
+    padding: 5rem;
+  }
+  .popup-box p {
+    margin-top: 1rem;
+    font-size: 1.1rem;
+  }
