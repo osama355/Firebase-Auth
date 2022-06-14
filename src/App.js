@@ -1,21 +1,28 @@
 import "./App.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
-import Home from './components/Home';
-import { BrowserRouter as Router } from "react-router-dom";
+import Home from "./components/Home";
+import ProtectedRoute from './components/ProtectedRoute'
 import { Routes, Route } from "react-router-dom";
+import { UserAuthContextProvider } from "./context/UserAuthContext";
 
 function App() {
   return (
     <div>
-      <Router>
+      <UserAuthContextProvider>
         <Routes>
-          <Route path="/" element={<Login/>}/>
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/home" element={<Home/>} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
-      </Router>
+      </UserAuthContextProvider>
     </div>
   );
 }
